@@ -16,10 +16,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import home,info
-
+from django.conf.urls import url,include
+from dappx import views
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',home),
-    path('info/',info)
+    #path('',home),
+    url(r'^$',views.index,name='index'),
+    path('info/',info),
+    url(r'^special/',views.special,name='special'),
+    url(r'^dappx/',include('dappx.urls')),
+    url(r'^logout/$', views.user_logout, name='logout'),
 ]
 
