@@ -7,6 +7,7 @@
   	    <h1>Cognitive Behavioral Therapy.</h1>
   	    {% if user.is_authenticated %}
         <h2>Hello {{ user.username }}</h2>
+        <a href="{% url 'survey' %}">Take a Survey To begin with.</a>
     {% else %}
         <h2>Register or Login if you'd like to</h2>
     {% endif %}
